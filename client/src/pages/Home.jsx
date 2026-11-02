@@ -19,6 +19,7 @@ import UniversalLoader from '../components/common/UniversalLoader';
 import { getSafeImageUrl } from '../utils/imageUrl';
 import ListingCard from '../components/product/ListingCard';
 import BannerSlideshow from '../components/home/BannerSlideshow';
+import CategoryScrollBar from '../components/home/CategoryScrollBar';
 import { TRANSACTION_FILTERS, SORT_OPTIONS } from '../constants/listingConfig';
 
 export default function Home() {
@@ -170,7 +171,7 @@ export default function Home() {
       {/* Category Pills Bar - Sticky with Navbar, Horizontal Scrollable */}
       <div className="sticky top-16 z-30 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-2xs relative">
         <div className="w-full px-4 sm:px-6 lg:px-[5%] py-2.5 sm:py-3 relative">
-          <div className="flex items-center gap-2 overflow-x-auto py-0.5 scrollbar-none no-scrollbar touch-pan-x pr-8 touch-momentum">
+          <CategoryScrollBar>
             <button
               onClick={() => handleCategoryClick('ALL')}
               className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap border shrink-0 cursor-pointer ${selectedCategory === 'ALL'
@@ -201,9 +202,7 @@ export default function Home() {
                 </button>
               );
             })}
-          </div>
-          {/* Subtle right-edge scroll hint fade on mobile */}
-          <div className="sm:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white/90 to-transparent pointer-events-none" />
+          </CategoryScrollBar>
         </div>
       </div>
 
